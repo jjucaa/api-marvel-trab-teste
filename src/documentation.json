@@ -1,0 +1,188 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Marvel",
+    "description": "API para chamar API da Marvel\n",
+    "contact": {
+      "name": "Douglas Fernandes de Oliveira e João Vitor Silverio Coelho",
+      "email": "joaovitorsilveriocoelho@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-marvel-trab.herokuapp.com/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Characters"
+    }
+  ],
+  "paths": {
+    "/v1/public/characters": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Lists all Marvel Characters",
+        "operationId": "listAllChar",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterid}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Show everything about this character id",
+        "operationId": "listChar",
+        "parameters": [
+          {
+            "name": "characterid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Character with id {characterid} not found"
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterid}/comics": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Show all comics about with this characterid",
+        "operationId": "listCharComic",
+        "parameters": [
+          {
+            "name": "characterid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Character comics with id {characterid} not found"
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterid}/events": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Show all events about with this characterid",
+        "operationId": "listCharEvents",
+        "parameters": [
+          {
+            "name": "characterid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Character with evets id {characterid} not found"
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterid}/series": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Show all series about with this characterid",
+        "operationId": "listCharSeries",
+        "parameters": [
+          {
+            "name": "characterid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Character with series id {characterid} not found"
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterid}/stories": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "description": "Show all stories about with this characterid",
+        "operationId": "listCharStories",
+        "parameters": [
+          {
+            "name": "characterid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Character with stories id {characterid} not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
