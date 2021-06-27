@@ -17,8 +17,8 @@ jobs:
       - name: Log in
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
         working-directory: ./
