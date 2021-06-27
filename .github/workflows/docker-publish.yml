@@ -1,0 +1,27 @@
+name: Docker
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+
+      - name: Build and push Docker image
+        working-directory: ./
+        run: | 
+            docker build -t jjucaa/trabalho-api-marvel-teste:latest .
+            docker push jjucaa/trabalho-api-marvel-teste
